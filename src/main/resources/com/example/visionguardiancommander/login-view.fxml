@@ -5,15 +5,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <GridPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.visionguardiancommander.LoginController">
     <padding>
-        <Insets top="10" right="10" bottom="10" left="10"/>
+        <Insets top="100" right="470" bottom="100" left="470"/>
     </padding>
 
+    <!-- Center alignment constraints -->
+    <columnConstraints>
+        <ColumnConstraints percentWidth="100" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints percentHeight="100" />
+    </rowConstraints>
+
+    <VBox spacing="10" alignment="CENTER">
+    <Region minWidth="50" maxWidth="100"/> <!-- Width constraints -->
     <VBox spacing="10">
         <Label text="Username:"/>
         <TextField fx:id="usernameField"/>
@@ -25,5 +38,7 @@
             <Button text="Cancel" onAction="#handleCancel"/>
         </HBox>
     </VBox>
+    <Region minWidth="50" maxWidth="100"/> <!-- Width constraints -->
+</VBox>
 </GridPane>
 

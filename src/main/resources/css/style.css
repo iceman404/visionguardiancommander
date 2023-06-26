@@ -1,0 +1,4 @@
+.root {
+    -fx-background-image: url("/Assets/Images/loading.gif");
+    -fx-background-size: cover;
+}
