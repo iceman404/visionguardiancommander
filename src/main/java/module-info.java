@@ -7,6 +7,6 @@ module com.example.visionguardiancommander {
                 requires org.kordamp.ikonli.javafx;
             requires org.kordamp.bootstrapfx.core;
             
-    opens com.example.visionguardiancommander to javafx.fxml;
-    exports com.example.visionguardiancommander;
+    opens com.project4.visionguardiancommander to javafx.fxml;
+    exports com.project4.visionguardiancommander;
 }

@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.visionguardiancommander.LoginController">
+<GridPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project4.visionguardiancommander.LoginViewController">
     <padding>
-        <Insets top="100" right="470" bottom="100" left="470"/>
+        <Insets top="100" right="450" bottom="100" left="450"/>
     </padding>
 
     <!-- Center alignment constraints -->

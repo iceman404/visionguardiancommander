@@ -1,11 +1,12 @@
-package com.example.visionguardiancommander;
+package com.project4.visionguardiancommander;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class LoginController {
+public class LoginViewController {
+    private MainApplication mainApplication;
 
     @FXML
     private TextField usernameField;
@@ -15,6 +16,10 @@ public class LoginController {
 
     @FXML
     private Label errorLabel;
+
+    public void setMainApplication(MainApplication mainApplication) {
+        this.mainApplication = mainApplication;
+    }
 
     @FXML
     private void handleLogin() {
@@ -37,14 +42,15 @@ public class LoginController {
         // Perform your login validation logic here
         // Return true if the login is successful, false otherwise
         // You can replace this with your own implementation
-        return username.equals("admin") && password.equals("password");
+        return username.equals("admin") && password.equals("admin");
     }
 
     private void showMainInterface() {
-        // TODO: Implement your main interface logic
-        // This method will be called when the login is successful
-        // You can open a new window or replace the current scene with your main interface
-        System.out.println("Login successful");
+        try {
+            mainApplication.showMainView();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void showError(String message) {
