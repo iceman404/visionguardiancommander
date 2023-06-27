@@ -24,8 +24,12 @@ public class MainApplication extends Application {
         public void showLoginView() throws Exception {
             primaryStage.setTitle("Login");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
-            GridPane gridPane = fxmlLoader.load();
+            FXMLLoader loginLoader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
+            GridPane gridPane = loginLoader.load();
+
+            // Get the LoginViewController instance and set the mainApplication reference
+            loginController = loginLoader.getController();
+            loginController.setMainApplication(this);
 
             GridPane root = new GridPane();
 
@@ -40,18 +44,20 @@ public class MainApplication extends Application {
             primaryStage.show();
         }
 
-    public void showMainView() throws Exception {
-        primaryStage.setTitle("Main View");
+        public void showMainView() throws Exception {
+            primaryStage.setTitle("Main View");
 
-        FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/com/project4/visionguardiancommander/main-view.fxml"));
-        AnchorPane mainPane = mainLoader.load();
-        mainController = mainLoader.getController();
+            FXMLLoader mainLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
+            AnchorPane mainPane = mainLoader.load();
+            mainController = mainLoader.getController();
 
-        Scene scene = new Scene(mainPane);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+            Scene scene = new Scene(mainPane);
+            primaryStage.setScene(scene);
+            primaryStage.show();
 
+            // Initialize the main view controller
+            mainController.initialize();
+        }
     public static void main(String[] args) {
         launch(args);
     }

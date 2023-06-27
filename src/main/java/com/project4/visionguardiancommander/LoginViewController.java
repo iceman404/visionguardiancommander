@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class LoginViewController {
     private MainApplication mainApplication;
@@ -29,6 +31,18 @@ public class LoginViewController {
             showMainInterface();
         } else {
             showError("Invalid username or password");
+        }
+    }
+    @FXML
+    private void handleEnterKey(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+            if (validateLogin(username, password)) {
+                showMainInterface();
+            } else {
+                showError("Invalid username or password");
+            }
         }
     }
 
