@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<?import javafx.scene.layout.ColumnConstraints?>
+<AnchorPane prefHeight="585.0" prefWidth="1041.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project4.visionguardiancommander.MainViewController">
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+    <Label layoutX="531.0" layoutY="32.0" prefHeight="26.0" prefWidth="191.0" text="Welcome to the Main Interface" AnchorPane.leftAnchor="531.0" AnchorPane.topAnchor="32.0" />
 
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.project4.visionguardiancommander.MainViewController"
-            prefHeight="585.0" prefWidth="1041.0">
-
-    <Label text="Welcome to the Main View!" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="40" />
-
-    <TextField fx:id="textField" promptText="Enter text" AnchorPane.leftAnchor="50" AnchorPane.topAnchor="50" />
-    <Rectangle fx:id="graphWindow" width="400" height="400" fill="WHITE" stroke="BLACK" strokeWidth="2" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="15" />
-    <Rectangle fx:id="webcamWindow" width="400" height="400" fill="WHITE" stroke="BLACK" strokeWidth="2" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="15" />
+    <TextField fx:id="textField" layoutX="21.0" layoutY="103.0" prefHeight="0.0" prefWidth="191.0" promptText="Enter text" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="103.0" />
+    <Rectangle fx:id="graphWindow" fill="WHITE" height="165.0" layoutX="15.0" layoutY="371.0" stroke="BLACK" strokeWidth="4.0" width="479.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="370.0" />
+    <Rectangle fx:id="webcamWindow" fill="WHITE" height="365.0" layoutY="170.0" stroke="BLACK" strokeWidth="2" width="457.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="169.0" />
+   <ButtonBar layoutX="298.0" layoutY="118.0" prefHeight="26.0" prefWidth="139.0">
+     <buttons>
+       <Button minWidth="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="146.0" text="Button" />
+     </buttons>
+   </ButtonBar>
+   <ImageView fitHeight="181.0" fitWidth="474.0" layoutX="15.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true" />
+   <RadioButton layoutX="385.0" layoutY="72.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="105.0" text="RadioButton" />
+   <LineChart layoutX="5.0" layoutY="375.0" prefHeight="167.0" prefWidth="488.0">
+     <xAxis>
+       <CategoryAxis side="BOTTOM" />
+     </xAxis>
+     <yAxis>
+       <NumberAxis side="LEFT" />
+     </yAxis>
+   </LineChart>
 
 </AnchorPane>
