@@ -1,4 +1,4 @@
-package com.project4.visionguardiancommander;
+package com.project.visionguardiancommander;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;

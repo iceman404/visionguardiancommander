@@ -1,4 +1,4 @@
-package com.project4.visionguardiancommander;
+package com.project.visionguardiancommander;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
