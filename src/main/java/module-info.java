@@ -1,4 +1,4 @@
-module com.example.visionguardiancommander {
+module com.project4.visionguardiancommander {
     requires javafx.controls;
     requires javafx.fxml;
             

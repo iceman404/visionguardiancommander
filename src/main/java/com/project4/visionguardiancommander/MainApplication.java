@@ -2,10 +2,12 @@ package com.project4.visionguardiancommander;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -45,10 +47,31 @@ public class MainApplication extends Application {
         }
 
         public void showMainView() throws Exception {
-            primaryStage.setTitle("Main View");
+            //primaryStage.setTitle("Main View");
 
-            FXMLLoader mainLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
-            AnchorPane mainPane = mainLoader.load();
+            //BorderPane mainPane = (BorderPane)FXMLLoader.load(getClass().getResource("sample.fxml"));
+
+           // FXMLLoader mainLoader = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            //BorderPane mainPane = mainLoader.load();
+            //Scene scene = new Scene(mainPane,1350,720);
+
+            // Get the LoginViewController instance and set the mainApplication reference
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Sample.fxml"));
+            Parent root = loader.load();
+            SampleController sampleController = loader.getController();
+
+            Scene scene = new Scene(root, 1350, 720);
+            scene.getStylesheets().add(getClass().getResource("/css/application.css").toExternalForm());
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/images/logo.png")));
+            primaryStage.setTitle("Vision Guardian Commander");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+            /*
+            FXMLLoader mainLoader = new FXMLLoader(MainApplication.class.getResource("sample.fxml"));
+            Parent root = loader.load();
+            SampleController sampleController = loader.getController();
+            BorderPane mainPane = mainLoader.load();
             mainController = mainLoader.getController();
 
             Scene scene = new Scene(mainPane);
@@ -57,8 +80,13 @@ public class MainApplication extends Application {
 
             // Initialize the main view controller
             mainController.initialize();
+
+            scene.getStylesheets().add(getClass().getResource("/css/application.css").toExternalForm());
+           // primaryStage.getIcons().add(new Image("resources/assets/images/logo.png"));
+*/
         }
     public static void main(String[] args) {
-        launch(args);
+
+            launch(args);
     }
 }
