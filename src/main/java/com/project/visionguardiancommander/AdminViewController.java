@@ -852,7 +852,6 @@ public class AdminViewController {
         FileChooser fileChooser = new FileChooser();
 
         // Set initial directory (optional)
-        //fileChooser.setInitialDirectory(new File(System.getProperty("C:/Users/iceman44/Desktop/ExoVisix-master/facesRecord/")));
 
         // Set the initial directory to your desired path
         File initialDirectory = new File(".\\facesRecord");
