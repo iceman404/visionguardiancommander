@@ -20,6 +20,7 @@ VisionGuardianCommander is a Java application developed as a fourth-semester pro
 - **Launch the application.**
 - **Explore the various features provided by VisionGuardianCommander through the user interface.**
 - **Customize and extend the application as needed for your specific use case.**
+- **For Database import the visionguardiancommander.sql file and insert relevant data.**
 
 ## Contributing
  **Contributions to VisionGuardianCommander are welcome! If you'd like to contribute to this project, please follow these steps:**
