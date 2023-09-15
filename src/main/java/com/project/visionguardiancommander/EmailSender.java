@@ -18,7 +18,7 @@ import jakarta.mail.internet.MimeMultipart;
 
 public class EmailSender {
     private static final String HOST = "smtp.gmail.com";
-    private static final String USERNAME = "visionguardiancommander@gmail.com";
+    private static final String USERNAME = "visionguardiancommander@gmail.com"; //use your own
     private static final String PASSWORD = "**************"; // This is secured!
 
     private static Session session;
