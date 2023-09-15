@@ -40,6 +40,7 @@ public class EmailSender {
                 }
             });
             session.setDebug(true);
+
         }
     }
 
