@@ -10,7 +10,7 @@
 
     -fx-min-width: 90px;
 
-    -fx-background-image: url("/assets/images/onon.png");
+    -fx-background-image: url("../onon.png");
 
     -fx-background-size: 50px 50px;
 
@@ -26,8 +26,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/face.png");
+	
+    -fx-background-image: url("../face.png");
 
     -fx-background-size: 50px 50px;
 
@@ -43,8 +43,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/recognition.png");
+	
+    -fx-background-image: url("../recognition.png");
 
     -fx-background-size: 50px 50px;
 
@@ -63,8 +63,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/motion.png");
+	
+    -fx-background-image: url("../motion.png");
 
     -fx-background-size: 50px 50px;
 
@@ -80,8 +80,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/stop.png");
+	
+    -fx-background-image: url("../stop.png");
 
     -fx-background-size: 50px 50px;
 
@@ -97,8 +97,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/stop.png");
+	
+    -fx-background-image: url("../stop.png");
 
     -fx-background-size: 50px 50px;
 
@@ -114,8 +114,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/scanner.png");
+	
+    -fx-background-image: url("../scanner.png");
 
     -fx-background-size: 50px 50px;
 
@@ -130,8 +130,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/camera.png");
+	
+    -fx-background-image: url("../camera.png");
 
     -fx-background-size: 40px 30px;
 
@@ -146,8 +146,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/gesture.png");
+	
+    -fx-background-image: url("../gesture.png");
 
     -fx-background-size: 50px 50px;
 
@@ -163,8 +163,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/eye.png");
+	
+    -fx-background-image: url("../eye.png");
 
     -fx-background-size: 45px 40px;
 
@@ -179,8 +179,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/square.png");
+	
+    -fx-background-image: url("../square.png");
 
     -fx-background-size: 50px 50px;
 
@@ -196,8 +196,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/aa.png");
+	
+    -fx-background-image: url("../aa.png");
 
     -fx-background-size: 50px 50px;
 
@@ -212,9 +212,9 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/fullbody.png");
-
+	
+    -fx-background-image: url("../fullbody.png");
+	
 
     -fx-background-size: 50px 40px;
 
@@ -230,8 +230,8 @@
 
     -fx-min-width: 90px;
 
-
-    -fx-background-image: url("/assets/images/smile.jpg");
+	
+    -fx-background-image: url("../smile.jpg");
 
     -fx-background-size: 50px 50px;
 
@@ -240,7 +240,49 @@
     -fx-background-position: center 7px;
 }
 
+AnchorPane
+{
+    -fx-background-color: #696969
+}
 
+.FetchedData
+{
+    -fx-background-color: rgb(255, 0, 0)
+}
+
+.FaceDatabase
+{
+    -fx-background-color: #0e0d0d
+}
+
+.Pane
+{
+    -fx-background-color: #262424
+    
+}
+
+
+.titled-pane > .title{
+    -fx-background-color: #A22B2B;
+}
+
+.titled-pane > .title > .text {
+    -fx-fill: white;
+}
+
+.titled-pane > .arrow_button{
+	
+	-fx-background-color: #262424;
+	
+}
+.titled-pane > .arrow{
+	
+	-fx-background-color: #262424;
+	
+}
+.titled-pane > .content{
+    -fx-background-color: #262424;
+}
 
 
 

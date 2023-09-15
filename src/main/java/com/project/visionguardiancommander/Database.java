@@ -1,151 +1,225 @@
 package com.project.visionguardiancommander;
 
-
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 
 
 class Database {
-    public int code;
+    public String specialCode;
 
     public String firstName;
     public String lastName;
     public int registrationId;
-    public int age;
-    public String sex;
+    public int ageInfo;
+    public String sexInfo;
+    public String photoDirectoryPath;
+    public Boolean activeStatus;
 
-    public final String databaseName = "VisionGuardianCommander";
-    public final String databaseUserName = "root";
-    public final String databasePassword = "";
-
-    public Connection con;
+    private final String databaseName = "VisionGuardianCommander";
+    private final String databaseUserName = "root";
+    private final String databasePassword = "";
+    private Connection con;
 
     public boolean init() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-            try {
-                this.con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databaseName, databaseUserName,
-                        databasePassword);
-            } catch (SQLException e) {
-
-                System.out.println("Error: Database Connection Failed!!! Please check the connection Setting...");
-
-                return false;
-
-            }
-
-        } catch (ClassNotFoundException e) {
-
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databaseName, databaseUserName,
+                    databasePassword);
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-
             return false;
         }
+    }
 
+    public void insert(String specialCode, String firstName, String lastName, int registrationId,
+                       int ageInfo, String sexInfo, String photoDirectoryPath, Boolean activeStatus ) {
+
+        String sql = "INSERT INTO userDatabase(special_code, first_name, last_name, registration_id, age_info, sex_info, photo_directory_path, active_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setString(1, specialCode);
+            statement.setString(2, firstName);
+            statement.setString(3, lastName);
+            statement.setInt(4, registrationId);
+            statement.setInt(5, ageInfo);
+            statement.setString(6, sexInfo);
+            statement.setString(7, photoDirectoryPath);
+            statement.setBoolean(8, activeStatus);
+
+            int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("Face data was inserted successfully!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Boolean update(String specialCode, String firstName, String lastName, int registrationId,
+                          int ageInfo, String sexInfo, String photoDirectoryPath, Boolean activeStatus, String altSpecialCode) {
+
+        String sql = "UPDATE userDatabase SET special_code=?, first_name=?, last_name=?, registration_id=?, age_info=?, sex_info=?, photo_directory_path=?, active_status=? WHERE special_code=?";
+
+        try (PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setString(1, specialCode);
+            statement.setString(2, firstName);
+            statement.setString(3, lastName);
+            statement.setInt(4, registrationId);
+            statement.setInt(5, ageInfo);
+            statement.setString(6, sexInfo);
+            statement.setString(7, photoDirectoryPath);
+            statement.setBoolean(8, activeStatus);
+            statement.setString(9, altSpecialCode);
+            //statement.setInt(9, userId);
+
+            int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("Face data was updated successfully!");
+            } else {
+                System.out.println("No records were updated.");
+                return false;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 
-    public void insert() {
-        String sql = "INSERT INTO face_bio (code, first_name, last_name, registration_id, age , sex) VALUES (?, ?, ?, ?,?,?)";
 
-        PreparedStatement statement = null;
-        try {
-            statement = con.prepareStatement(sql);
-        } catch (SQLException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
 
-        try {
+    public ArrayList<String> getUser(String specialCode) {
+        ArrayList<String> user = new ArrayList<>();
 
-            statement.setInt(1, this.code);
-            statement.setString(2, this.firstName);
+        String sql = "SELECT * FROM userDatabase WHERE special_code = ? LIMIT 1";
 
-            statement.setString(3, this.lastName);
-            statement.setInt(4, this.registrationId);
-            statement.setInt(5, this.age);
-            statement.setString(6, this.sex);
+        try (PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setString(1, specialCode);
+            ResultSet rs = statement.executeQuery();
 
-            int rowsInserted = statement.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("A new face data was inserted successfully!");
+            if (rs.next()) {
+                user.add(rs.getString("first_name"));
+                user.add(rs.getString("last_name"));
+                user.add(rs.getString("registration_id"));
+                user.add(rs.getString("age_info"));
+                user.add(rs.getString("sex_info"));
+                user.add(rs.getString("photo_directory_path"));
+                user.add(rs.getString("active_status"));
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
-        }
-
-    }
-
-    public ArrayList<String> getUser(int inCode){
-
-        ArrayList<String> user = new ArrayList<String>();
-
-        try {
-
-            Database app = new Database();
-
-            String sql = "select * from face_bio where code=" + inCode + " limit 1";
-
-            Statement s = con.createStatement();
-
-            ResultSet rs = s.executeQuery(sql);
-
-            while (rs.next()) {
-
-                /*
-                 * app.setCode(rs.getInt(2)); app.setFname(rs.getString(3));
-                 * app.setLname(rs.getString(4)); app.setReg(rs.getInt(5));
-                 * app.setAge(rs.getInt(6)); app.setSec(rs.getString(7));
-                 */
-
-                user.add(0, Integer.toString(rs.getInt(2)));
-                user.add(1, rs.getString(3));
-                user.add(2, rs.getString(4));
-                user.add(3, Integer.toString(rs.getInt(5)));
-                user.add(4, Integer.toString(rs.getInt(6)));
-                user.add(5, rs.getString(7));
-
-                /*
-                 * System.out.println(app.getCode());
-                 * System.out.println(app.getFname());
-                 * System.out.println(app.getLname());
-                 * System.out.println(app.getReg());
-                 * System.out.println(app.getAge());
-                 * System.out.println(app.getSec());
-                 */
-
-                // nString="Name:" + rs.getString(3)+" "+rs.getString(4) +
-                // "\nReg:" + app.getReg() +"\nAge:"+app.getAge() +"\nSection:"
-                // +app.getSec() ;
-
-                // System.out.println(nString);
-            }
-
-            con.close(); // closing connection
-        } catch (Exception e) {
-            e.getStackTrace();
         }
         return user;
     }
 
-    public void db_close() throws SQLException {
-        try {
-            con.close();
+
+    public Database getUserAsDatabase(String specialCode) {
+        Database userTemp = new Database();
+
+        String sql = "SELECT * FROM userDatabase WHERE special_code = ? AND active_status = 1 LIMIT 1";
+
+        try (PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setString(1, specialCode);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                userTemp.setSpecialCode(rs.getString("special_code"));
+                userTemp.setFirstName(rs.getString("first_name"));
+                userTemp.setLastName(rs.getString("last_name"));
+                userTemp.setRegistrationId(rs.getInt("registration_id"));
+                userTemp.setAgeInfo(rs.getInt("age_info"));
+                userTemp.setSexInfo(rs.getString("sex_info"));
+                userTemp.setPhotoDirectoryPath(rs.getString("photo_directory_path"));
+                userTemp.setActiveStatus(rs.getBoolean("active_status"));
+            }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return userTemp;
+    }
+
+
+    public List<Database> getUsers() {
+
+
+        List<Database> users = new ArrayList<>();
+
+        String sql = "SELECT * FROM userDatabase;";
+
+        try (PreparedStatement statement = con.prepareStatement(sql)) {
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Database user = new Database();
+                user.setSpecialCode(rs.getString("special_code"));
+                user.setFirstName(rs.getString("first_name"));
+                user.setLastName(rs.getString("last_name"));
+                user.setRegistrationId(rs.getInt("registration_id"));
+                user.setAgeInfo(rs.getInt("age_info"));
+                user.setSexInfo(rs.getString("sex_info"));
+                user.setPhotoDirectoryPath(rs.getString("photo_directory_path"));
+                user.setActiveStatus(rs.getBoolean("active_status"));
+
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return users;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public String checkUserCode(String specialCode) {
+        String userCode = new String();
+
+        String sql = "SELECT * FROM userDatabase WHERE special_code = ? LIMIT 1";
+
+        try (PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setString(1, specialCode);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                userCode = rs.getString("special_code");
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userCode;
+    }
+
+    public void db_close() {
+        try {
+            if (con != null) {
+                con.close();
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
 
-    public int getCode() {
-        return code;
+    public String getSpecialCode() {
+        return specialCode;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setSpecialCode(String specialCode) {
+        this.specialCode = specialCode;
     }
 
     public String getFirstName() {
@@ -164,29 +238,46 @@ class Database {
         this.lastName = lastName;
     }
 
-    public int getReg() {
+    public int getRegistrationId() {
         return registrationId;
     }
 
-    public void setReg(int registrationId) {
+    public void setRegistrationId(int registrationId) {
         this.registrationId = registrationId;
     }
 
-    public int getAge() {
-        return age;
+    public int getAgeInfo() {
+        return ageInfo;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAgeInfo(int age) {
+        this.ageInfo = age;
     }
 
-    public String getSex() {
-        return sex;
+    public String getSexInfo() {
+        return sexInfo;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setSexInfo(String sex) {
+        this.sexInfo = sex;
+    }
+
+    public String getPhotoDirectoryPath() {
+        return photoDirectoryPath;
+    }
+
+    public void setPhotoDirectoryPath(String photoDirectoryPath) {
+        this.photoDirectoryPath = photoDirectoryPath;
+    }
+
+    public Boolean getActiveStatus() {
+        return activeStatus;
+    }
+
+    public void setActiveStatus(Boolean activeStatus) {
+        this.activeStatus = activeStatus;
     }
 
 }
+
 
