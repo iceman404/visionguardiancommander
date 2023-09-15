@@ -16,26 +16,26 @@ VisionGuardianCommander is a Java application developed as a fourth-semester pro
 - **MySQL Integration**: VisionGuardianCommander integrates with MySQL to store and manage data efficiently, ensuring data persistence and retrieval.
 
 
-# Usage
-## -Launch the application.
-## -Explore the various features provided by VisionGuardianCommander through the user interface.
-## -Customize and extend the application as needed for your specific use case.
+## Usage
+- **Launch the application.**
+- **Explore the various features provided by VisionGuardianCommander through the user interface.**
+- **Customize and extend the application as needed for your specific use case.**
 
-# Contributing
-## Contributions to VisionGuardianCommander are welcome! If you'd like to contribute to this project, please follow these steps:
+## Contributing
+### Contributions to VisionGuardianCommander are welcome! If you'd like to contribute to this project, please follow these steps:
 
-### -Fork the repository.
-### -Create a new branch for your feature or bug fix.
-### -Make your changes and test them thoroughly.
-### -Commit your changes and push them to your fork.
-### -Submit a pull request to the main repository.
+- **Fork the repository.**
+- **Create a new branch for your feature or bug fix.**
+- **Make your changes and test them thoroughly.**
+- **Commit your changes and push them to your fork.**
+- **Submit a pull request to the main repository.**
 
 
-# License
-## This project is licensed under the MIT License - see the LICENSE.md file for details.
+## License
+### This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-# Contact
-## If you have any questions or need further assistance, please feel free to contact us at [![Button](https://img.shields.io/badge/johnsubba404@gmail.com-09C4D0)](https://mail.google.com/mail/?view=cm&to=johnsubba404@gmail.com).
+## Contact
+### If you have any questions or need further assistance, please feel free to contact us at [![Button](https://img.shields.io/badge/johnsubba404@gmail.com-09C4D0)](https://mail.google.com/mail/?view=cm&to=johnsubba404@gmail.com)
 
-## Thank you for using VisionGuardianCommander!
+### Thank you for using VisionGuardianCommander!
 
