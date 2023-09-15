@@ -292,7 +292,7 @@ public class MainViewController {
                         + "\nConfidence Level: " + recognizedPerson.get(1));
             });
 
-            Image nullImage = new Image("file:C:/Users/iceman44/Desktop/ExoVisix-master/assets/icons/no-feed.png");
+            Image nullImage = new Image("./assets/icons/no-feed.png"); //put your relative path
             javafx.application.Platform.runLater(() -> {
                 photoDetail.setImage(nullImage);
             });
@@ -363,7 +363,7 @@ public class MainViewController {
 
     void stopCameraInit() {
         stopThread = true;
-        Image originalImage = new Image("file:C:/Users/iceman44/Desktop/ExoVisix-master/assets/icons/no-feed.png");
+        Image originalImage = new Image("./assets/icons/no-feed.png"); //your relative path
         feedWindow.setImage(originalImage);
         faceDetect.stop();
 
