@@ -430,7 +430,7 @@ public class AdminViewController {
                 updateScreenViewer.setImage(image);
             }
             else {
-                Image imageNull = new Image("file:C:/Users/iceman44/Desktop/ExoVisix-master/assets/icons/no-feed.png");
+                Image imageNull = new Image("./assets/icons/no-feed.png"); //relative path
                 updateScreenViewer.setImage(imageNull);
             }
         }
@@ -549,7 +549,7 @@ public class AdminViewController {
             deleteScreenLabelSexInfo.setText(" ");
             // String directoryTemp = searchDelete.getPhotoDirectoryPath();
             deleteScreenLabelPhotoPath.setText(" ");
-            Image imageNull = new Image("file:C:/Users/iceman44/Desktop/ExoVisix-master/assets/icons/no-feed.png");
+            Image imageNull = new Image("./assets/icons/no-feed.png"); //relative path
             deleteScreenViewer.setImage(imageNull);
         }
 
@@ -589,7 +589,7 @@ public class AdminViewController {
                     deleteScreenViewer.setImage(image);
                 }
                 else {
-                    Image imageNull = new Image("file:C:/Users/iceman44/Desktop/ExoVisix-master/assets/icons/no-feed.png");
+                    Image imageNull = new Image("./assets/icons/no-feed.png"); //relative path
                     deleteScreenViewer.setImage(imageNull);
                 }
             }
@@ -786,7 +786,7 @@ public class AdminViewController {
                         displayPhotoViewer.setImage(image);
                     }
                     else {
-                        Image imageNull = new Image("file:C:/Users/iceman44/Desktop/ExoVisix-master/assets/icons/no-feed.png");
+                        Image imageNull = new Image("./assets/icons/no-feed.png"); //relative path
                         displayPhotoViewer.setImage(imageNull);
                     }
                 }
