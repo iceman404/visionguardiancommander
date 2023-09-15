@@ -32,7 +32,7 @@ VisionGuardianCommander is a Java application developed as a fourth-semester pro
 
 
 ## License
- **This project is licensed under the MIT License - see the LICENSE.md file for details.**
+ **This project is licensed under the MIT License - see the LICENSE file for details.**
 
 ## Contact
  **If you have any questions or need further assistance, please feel free to contact us at** [![Button](https://img.shields.io/badge/johnsubba404@gmail.com-09C4D0)](https://mail.google.com/mail/?view=cm&to=johnsubba404@gmail.com)
